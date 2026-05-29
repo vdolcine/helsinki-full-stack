@@ -14,6 +14,32 @@
       "id": "3",
       "content": "GET and POST are the most important methods of HTTP protocol",
       "important": true
+    },
+    {
+      "content": "hello world",
+      "important": true,
+      "id": "H12uQMFWkZI"
+    },
+    {
+      "content": "this is another hello world",
+      "important": true,
+      "id": "MYUWfRuxMKk"
+    },
+    {
+      "content": "...",
+      "important": true,
+      "id": "TryvlQ9Lfo4"
+    },
+    {
+      "content": "does this note get added to the server and updated in state?",
+      "important": true,
+      "id": "UOTr1G6UoB4"
+    },
+    {
+      "content": "adding another note with the network requests as a service",
+      "important": true,
+      "id": "y7JoDKdZVao"
     }
-  ]
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }
