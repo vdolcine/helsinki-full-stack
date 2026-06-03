@@ -21,9 +21,24 @@
       "id": "4"
     },
     {
-      "name": "hello world",
-      "number": "123-456-7890",
-      "id": "xcblno2iKWs"
+      "name": "sabrina thompson",
+      "number": "555-674-0389",
+      "id": "gisMbk0k2HQ"
+    },
+    {
+      "name": "jason daween",
+      "number": "642-8753",
+      "id": "DMlb0ID63ic"
+    },
+    {
+      "name": "cowboy bebop",
+      "number": "987-654-3210",
+      "id": "boBrjWAPk_A"
+    },
+    {
+      "name": "world hello",
+      "number": "0123456789",
+      "id": "j70b5VwCtWk"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

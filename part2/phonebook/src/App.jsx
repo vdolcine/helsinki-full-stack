@@ -3,12 +3,14 @@ import phonebookService from './services/phonebook'
 import Filter from './components/Filter'
 import PersonForm from './components/PersonForm'
 import Persons from './components/Persons'
+import Notification from './components/Notification'
 
 const App = () => {
 	const [persons, setPersons] = useState([])
 	const [newName, setNewName] = useState('')
 	const [newNumber, setNewNumber] = useState('')
 	const [filterString, setFilterString] = useState('')
+	const [success, setSuccess] = useState({})
 
 	useEffect(() => {
 		phonebookService
@@ -33,6 +35,12 @@ const App = () => {
 						setNewName('')
 						setNewNumber('')
 					})
+					.catch(error => {
+						console.log('error when updating person', error)
+						setSuccess({ name: personToUpdate.name, type: 'warning' })
+						setNewName('')
+						setNewNumber('')
+					})
 			} else {
 				setNewName('')
 				setNewNumber('')
@@ -48,6 +56,10 @@ const App = () => {
 					setPersons(persons.concat(person))
 					setNewName('')
 					setNewNumber('')
+					setSuccess({ name: person.name, type: 'success' })
+					setTimeout(() => {
+						setSuccess({})
+					}, 5000)
 				})
 		}
 	}
@@ -56,8 +68,8 @@ const App = () => {
 		if (window.confirm(`Delete ${person.name}`)) {
 			phonebookService
 				.deletePerson(person.id)
-				.then(person => {
-					setPersons(persons.filter(person => person.id !== id))
+				.then(deletedPerson => {
+					setPersons(persons.filter(person => person.id !== deletedPerson.id))
 				})
 		}
 	}
@@ -72,6 +84,7 @@ const App = () => {
 	return (
 		<div>
 			<h2>Phonebook</h2>
+			<Notification name={success.name} type={success.type} />
 			<Filter onChange={(event) => setFilterString(event.target.value)} filterString={filterString} />
 			<h2>add a new</h2>
 			<PersonForm
