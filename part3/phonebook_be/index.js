@@ -1,6 +1,5 @@
 const express = require('express')
 const morgan = require('morgan')
-const cors = require('cors')
 const app = express()
 
 let phonebook = [
@@ -39,7 +38,6 @@ const nameAlreadyExists = (name) => {
 
 app.use(express.json())
 app.use(express.static('dist'))
-app.use(cors())
 app.use(morgan('tiny'))
 
 app.get('/', (req, res) => {
@@ -100,5 +98,5 @@ app.delete('/api/persons/:id', (req, res) => {
   res.status(204).end()
 })
 
-const PORT = 3001
+const PORT =  process.env.PORT || 3001
 app.listen(PORT, () => console.log(`server is running on port: ${PORT}`))
